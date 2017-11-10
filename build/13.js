@@ -66,47 +66,44 @@ var LoginPage = (function () {
         this.alertCtrl = alertCtrl;
         this.formBuilder = formBuilder;
         this.authService = authService;
-        this.registerCredentials = { username: '', password: '' };
+        this.registerCredentials = { username: '002C000001', password: '897487' };
         this.authForm = formBuilder.group({
             username: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].pattern('[0-9a-zA-Z]*'), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].minLength(8), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].maxLength(30)])],
             password: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].minLength(6)])]
         });
     }
     LoginPage.prototype.onSubmit = function (value) {
-        var _this = this;
-        console.log(value);
-        if (this.authForm.valid) {
-            this.authService.login(value.username, value.password)
-                .then(function (data) {
-                _this.user = data;
-                console.log(_this.user);
-                window.localStorage.setItem('user', JSON.stringify(data));
-                _this.navCtrl.push('TabsPage');
-            })
-                .catch(function (err) {
-                console.error("Error: " + err);
-                var alert = _this.alertCtrl.create({
-                    title: 'Đăng nhập thất bại!',
-                    subTitle: 'Username hoặc password không đúng!',
-                    buttons: ['OK']
-                });
-                alert.present();
-                _this.navCtrl.push('TabsPage');
-            });
-        }
+        this.navCtrl.push('TabsPage');
+        // if (this.authForm.valid) {
+        //   this.authService.login(value.username, value.password)
+        //     .then(data => {
+        //       this.user = data;
+        //       console.log(this.user);
+        //       window.localStorage.setItem('user', JSON.stringify(data));
+        //       this.navCtrl.push('TabsPage');
+        //     })
+        //     .catch((err) => {
+        //       console.error(`Error: ${err}`);
+        //       const alert = this.alertCtrl.create({
+        //         title: 'Đăng nhập thất bại!',
+        //         subTitle: 'Username hoặc password không đúng!',
+        //         buttons: ['OK']
+        //       });
+        //       alert.present();
+        //       this.navCtrl.push('TabsPage');
+        //     });
+        // }
     };
     return LoginPage;
 }());
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"E:\N_MXV\MxvMobile\MobileV2\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n  <ion-row class="logo-row mxv-fadeUp">\n    <ion-col>\n      <img src="./assets/imgs/logo-mxv.png" />\n    </ion-col>\n  </ion-row>\n  <div class="login-box animated bounceInLeft">\n    <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">\n      <ion-row>\n        <ion-col>\n          <ion-list inset>\n            <ul class="text-light">\n              <li *ngIf="authForm.controls.username.hasError(\'required\') && authForm.controls.username.touched">Username là bắt buộc!</li>\n              <li *ngIf="authForm.controls.username.hasError(\'pattern\') && authForm.controls.username.touched">Username là số và chữ!</li>\n              <li *ngIf="authForm.controls.username.hasError(\'minlength\') && authForm.controls.username.touched">Username tối thiểu 8 ký tự!</li>\n              <li *ngIf="authForm.controls.password.hasError(\'required\') && authForm.controls.password.touched">Password là bắt buộc!</li>\n              <li *ngIf="authForm.controls.password.hasError(\'minlength\') && authForm.controls.password.touched">Password tối thiểu 6 ký tự!</li>\n            </ul>\n            <ion-item>\n              <ion-input formControlName="username" type="text" placeholder="Tên đăng nhập" name="email" [(ngModel)]="registerCredentials.email"\n                required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input formControlName="password" type="password" placeholder="Mật khẩu" name="password" [(ngModel)]="registerCredentials.password"\n                required></ion-input>\n            </ion-item>\n          </ion-list>\n        </ion-col>\n      </ion-row>\n\n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!authForm.valid">Đăng nhập</button>\n          <button ion-button class="register-btn" block clear (click)="createAccount()">Quên mật khẩu</button>\n        </ion-col>\n      </ion-row>\n\n    </form>\n  </div>\n</ion-content>\n'/*ion-inline-end:"E:\N_MXV\MxvMobile\MobileV2\src\pages\login\login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"E:\N_MXV\MxvMobile\MobileV2\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n  <ion-row class="logo-row mxv-fadeUp">\n    <ion-col>\n      <img src="./assets/imgs/logo-mxv.png" />\n    </ion-col>\n  </ion-row>\n  <div class="login-box animated bounceInLeft">\n    <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">\n      <ion-row>\n        <ion-col>\n          <ion-list inset>\n            <ul class="text-light">\n              <li *ngIf="authForm.controls.username.hasError(\'required\') && authForm.controls.username.touched">Username là bắt buộc!</li>\n              <li *ngIf="authForm.controls.username.hasError(\'pattern\') && authForm.controls.username.touched">Username là số và chữ!</li>\n              <li *ngIf="authForm.controls.username.hasError(\'minlength\') && authForm.controls.username.touched">Username tối thiểu 8 ký tự!</li>\n              <li *ngIf="authForm.controls.password.hasError(\'required\') && authForm.controls.password.touched">Password là bắt buộc!</li>\n              <li *ngIf="authForm.controls.password.hasError(\'minlength\') && authForm.controls.password.touched">Password tối thiểu 6 ký tự!</li>\n            </ul>\n            <ion-item>\n              <ion-input formControlName="username" type="text" placeholder="Tên đăng nhập" name="username" [(ngModel)]="registerCredentials.username"\n                required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input formControlName="password" type="password" placeholder="Mật khẩu" name="password" [(ngModel)]="registerCredentials.password"\n                required></ion-input>\n            </ion-item>\n          </ion-list>\n        </ion-col>\n      </ion-row>\n\n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!authForm.valid">Đăng nhập</button>\n          <button ion-button class="register-btn" block clear (click)="createAccount()">Quên mật khẩu</button>\n        </ion-col>\n      </ion-row>\n\n    </form>\n  </div>\n</ion-content>\n'/*ion-inline-end:"E:\N_MXV\MxvMobile\MobileV2\src\pages\login\login.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _d || Object])
 ], LoginPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=login.js.map
 
 /***/ })
